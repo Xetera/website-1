@@ -2,7 +2,6 @@ import { Link } from "gatsby"
 import React, { FC, HTMLAttributes, PropsWithChildren } from "react"
 import Scrollbar from "react-perfect-scrollbar"
 import "react-perfect-scrollbar/dist/css/styles.css"
-import Banner from "../../images/tph-banner.svg"
 import { ThemeToggler } from "../ThemeToggler"
 import * as SC from "./styles"
 
@@ -27,9 +26,13 @@ export const Sidebar: FC<PropsWithChildren<
   return (
     <SC.SidebarWrapper {...restProps}>
       <Scrollbar>
-        <Link to="/">
-          <Banner />
-        </Link>
+        <SC.Title to="/">
+          The
+          <br />
+          Programmer's
+          <br />
+          Hangout
+        </SC.Title>
         <SC.Inner>
           {children}
 

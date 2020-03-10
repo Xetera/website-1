@@ -27,8 +27,22 @@ export const SidebarWrapper = styled.div`
   }
 `
 
+export const Title = styled(Link)`
+  display: block;
+  color: ${props => props.theme.sidebar.foreground};
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 700;
+  padding: 20px 0 0 20px;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.85;
+  }
+`
+
 export const Inner = styled.div`
-  padding: 30px 0 30px 20px;
+  padding: 20px 0 30px 20px;
 `
 
 export const Menu = styled.nav`
