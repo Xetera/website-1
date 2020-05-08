@@ -1,9 +1,9 @@
-import React, { FC } from "react"
+import React from "react"
 
+import { HeaderBarebone } from "../HeaderBarebone"
 import { Breadcrumb } from "../Breadcrumb"
 import { StackedAvatars } from "../StackedAvatars"
 import * as SC from "./styles"
-import { Container } from "../Container"
 
 interface IHeaderProps {
   relativePath: string
@@ -20,7 +20,7 @@ interface IHeaderProps {
   externalResources?: string[]
 }
 
-export const Header: FC<IHeaderProps> = ({
+export const Header: React.FC<IHeaderProps> = ({
   basePath,
   relativePath,
   title,
@@ -35,40 +35,30 @@ export const Header: FC<IHeaderProps> = ({
   const dateToHuman = `${month} ${day}, ${year}`
 
   return (
-    <SC.HeaderWrapper>
-      <SC.BackgroundWrapper>
-        <SC.StyledWavesBottom />
-        <SC.StyledWavesTop />
-        <SC.StyledCircles />
-      </SC.BackgroundWrapper>
-
-      <Container>
-        <SC.Box>
-          <Breadcrumb relativePath={relativePath} basePath={basePath} />
-
-          <SC.Title>{title}</SC.Title>
-
-          <SC.Top>
-            {authors && (
-              <SC.Meta>
-                <StackedAvatars authors={authors} />
-                <SC.PopoverToggler>
-                  {authors.length} contributor{authors.length > 1 && "s"}
-                  <SC.Popover>
-                    {authors
-                      .map(author => `${author.name}#${author.hash}`)
-                      .join(", ")}
-                  </SC.Popover>
-                </SC.PopoverToggler>
-              </SC.Meta>
-            )}
-            {dateToHuman && <SC.Meta>{dateToHuman}</SC.Meta>}
+    <HeaderBarebone
+      above={<Breadcrumb relativePath={relativePath} basePath={basePath} />}
+      title={title}
+      content={
+        <SC.Top>
+          {authors && (
             <SC.Meta>
-              {timeToRead} minute{timeToRead !== 1 && "s"} read time
+              <StackedAvatars authors={authors} />
+              <SC.PopoverToggler>
+                {authors.length} contributor{authors.length > 1 && "s"}
+                <SC.Popover>
+                  {authors
+                    .map(author => `${author.name}#${author.hash}`)
+                    .join(", ")}
+                </SC.Popover>
+              </SC.PopoverToggler>
             </SC.Meta>
-          </SC.Top>
-        </SC.Box>
-      </Container>
-    </SC.HeaderWrapper>
+          )}
+          {dateToHuman && <SC.Meta>{dateToHuman}</SC.Meta>}
+          <SC.Meta>
+            {timeToRead} minute{timeToRead !== 1 && "s"} read time
+          </SC.Meta>
+        </SC.Top>
+      }
+    />
   )
 }

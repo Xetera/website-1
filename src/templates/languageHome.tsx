@@ -1,5 +1,7 @@
 import { graphql } from "gatsby"
 import React, { FC, Fragment } from "react"
+import { ContentPage } from "../components/ContentPage"
+import { Content } from "../components/Content"
 import { Header } from "../components/Header"
 import { Markdown } from "../components/Markdown"
 import { ResourcesList } from "../components/ResourcesList"
@@ -23,11 +25,15 @@ const LanguageHome: FC<any> = ({ data, pageContext }) => {
         createdAt={frontmatter.created_at}
         timeToRead={timeToRead}
       />
-      <Container>
-        <Markdown content={html} />
-        <ResourcesList relativeDirectory={pageContext.language} />
-        <Footer />
-      </Container>
+      <ContentPage>
+        <Container>
+          <Content>
+            <Markdown content={html} />
+            <ResourcesList relativeDirectory={pageContext.language} />
+            <Footer />
+          </Content>
+        </Container>
+      </ContentPage>
     </Fragment>
   )
 }

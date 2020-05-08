@@ -6,6 +6,11 @@ export const Content = styled.div`
   flex: 1 1 calc(100% - 305px);
   width: calc(100% - 305px);
   padding: 64px 0;
+
+  @media screen and (max-width: 1200px) {
+    width: auto;
+    flex-basis: auto;
+  }
 `
 
 export const Sidebar = styled.div`
@@ -13,11 +18,14 @@ export const Sidebar = styled.div`
   flex: 0 0 240px;
   border-left: 1px solid
     ${props => (props.theme.name === "dark" ? "#172129" : "#C7D3D9")};
-  background: ${props => (props.theme.name === "dark" ? "#172129" : "#fff")};
+  /* background: ${props =>
+    props.theme.name === "dark" ? "#172129" : "#fff"}; */
   color: ${props => (props.theme.name === "dark" ? "#f9f9f9" : "#172129")};
-  padding: 64px 32px;
+  /* padding: 64px 32px; */
+  margin: 64px 0;
+  padding: 0 32px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1200px) {
     width: auto;
     padding: 64px;
     flex-basis: auto;
@@ -33,6 +41,7 @@ export const SidebarHeader = styled.div`
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 8px;
+  margin-top: 0;
 `
 
 const ExtraLinks = styled.div`
@@ -47,9 +56,12 @@ const extraLink = css`
   display: flex;
   align-items: center;
   color: ${props => (props.theme.name === "dark" ? "#f9f9f9" : "#172129")};
-  margin-top: 4px;
   cursor: pointer;
   text-decoration: none;
+
+  & + & {
+    margin-top: 8px;
+  }
 
   &:hover {
     background: linear-gradient(92.97deg, #feaf6d 0%, #ff70a5 100%);
@@ -79,6 +91,8 @@ export const ExtraLinkExternal = styled.a`
 `
 
 export const ExtraLinkText = styled.div`
+  word-break: break-word;
+
   &::after {
     content: "";
     display: block;

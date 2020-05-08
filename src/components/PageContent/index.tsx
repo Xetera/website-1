@@ -1,6 +1,5 @@
 import React, { FC, Fragment } from "react"
 
-import ChevronUp from "../../icons/chevron-up.svg"
 import { humanize } from "../../utils"
 import * as SC from "./styles"
 import { Container } from "../Container"
@@ -21,7 +20,6 @@ function ExtraLink({
   const Inner = ({ text }: { text: string }) => (
     <Fragment>
       <SC.ExtraLinkText>{text}</SC.ExtraLinkText>
-      <ChevronUp />
     </Fragment>
   )
 
