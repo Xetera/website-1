@@ -5,7 +5,7 @@ export const Top = styled.div`
   display: flex;
   align-items: center;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1200px) {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -24,7 +24,7 @@ export const Meta = styled.div`
     margin: 0 8px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1200px) {
     & + & {
       margin-top: 8px;
     }

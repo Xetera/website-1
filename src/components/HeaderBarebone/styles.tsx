@@ -13,7 +13,7 @@ export const HeaderWrapper = styled.div`
 
   @media screen and (max-width: 1200px) {
     width: 100%;
-    margin: 0;
+    padding-right: 0;
   }
 
   @media screen and (max-width: 767px) {
@@ -61,8 +61,11 @@ export const Box = styled.div`
   backdrop-filter: blur(14px);
   max-width: calc(100% - 304px - 32px - 32px - 80px);
 
-  @media screen and (max-width: 767px) {
-    left: 40px;
+  @media screen and (max-width: 1200px) {
+    max-width: 100%;
+    left: 32px;
+    right: 32px;
+    margin-left: 0;
   }
 `
 
